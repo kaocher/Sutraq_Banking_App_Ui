@@ -34,10 +34,12 @@ class IntroSlider extends StatelessWidget {
             width: 1.sw,
             // color: Colors.amber,
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              // mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                semiBoldText(text: slideList[index].title, fontSize: 27.sp,color: AppColors.whiteColor),
+                semiBoldText(text: slideList[index].title, fontSize: 23.sp,color: AppColors.whiteColor),
                 verticalSpace(20.h),
-                smallText(text: slideList[index].desc, fontSize: 16.sp,color: AppColors.whiteColor),
+                smallText(text: slideList[index].desc, fontSize: 15.sp,color: AppColors.whiteColor),
               ],
             ),
           ),

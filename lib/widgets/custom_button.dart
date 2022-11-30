@@ -8,27 +8,35 @@ class CustomButton extends StatelessWidget {
   final String text;
   final VoidCallback onPress;
    Color? bgColor;
+   double? height;
+   double? width;
 
    CustomButton({
     required this.text,
     required this.onPress,
     this.bgColor= AppColors.greenColor,
+    this.height,
+    this.width,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: bgColor,
-        borderRadius: BorderRadius.circular(7).r,
-      ),
-      width: 300.w,
-      height: 60.w,
-      child: Center(
-        child: boldText(
-          text: text,
-          fontSize: 17.sp,
-          color: AppColors.whiteColor,
+    return GestureDetector(
+      onTap: onPress,
+      child: Container(
+        padding: EdgeInsets.symmetric(vertical: 20.h),
+        decoration: BoxDecoration(
+          color: bgColor,
+          borderRadius: BorderRadius.circular(7).r,
+        ),
+        width: width,
+        height: height,
+        child: Center(
+          child: boldText(
+            text: text,
+            fontSize: 16.sp,
+            color: AppColors.whiteColor,
+          ),
         ),
       ),
     );

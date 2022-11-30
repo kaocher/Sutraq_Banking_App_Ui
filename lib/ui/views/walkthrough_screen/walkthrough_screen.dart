@@ -3,9 +3,11 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:sutraq/const/app_colors.dart';
+import 'package:sutraq/ui/views/auth_screen/login_screen.dart';
 import 'package:sutraq/ui/views/walkthrough_screen/component/intro_slider.dart';
 import 'package:sutraq/ui/views/walkthrough_screen/component/slider_model.dart';
 import 'package:sutraq/widgets/custom_button.dart';
+import 'package:sutraq/widgets/custom_expanded.dart';
 import 'package:sutraq/widgets/custom_text.dart';
 
 class WalkThroughScreen extends StatefulWidget {
@@ -64,7 +66,7 @@ class _WalkThroughScreenState extends State<WalkThroughScreen> {
                         // color: Colors.amber,
                         ),
                   ),
-                  Expanded(
+                  customExpanded(
                     child: Container(
                       width: 1.sw,
                       padding: const EdgeInsets.only(bottom: 30).h,
@@ -78,9 +80,15 @@ class _WalkThroughScreenState extends State<WalkThroughScreen> {
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
-                          CustomButton(
-                            text: "Login",
-                            onPress: () {},
+                          Padding(
+                            padding:  EdgeInsets.symmetric(horizontal: 30.w),
+                            child: CustomButton(
+                              text: "Login",
+                              onPress: () {
+                                Navigator.push(context, MaterialPageRoute(builder: (context)=>LoginScreen()));
+                              },
+                              bgColor: AppColors.darkGreen,
+                            ),
                           ),
                           const SizedBox(
                             height: 20,

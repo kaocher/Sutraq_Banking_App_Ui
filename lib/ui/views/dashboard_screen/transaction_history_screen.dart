@@ -18,14 +18,14 @@ class TransactionHistory extends StatelessWidget {
           height: 1.sh,
           width: 1.sw,
           child: Padding(
-            padding: EdgeInsets.only(top: 15.h, left: 15.w, right: 15.w).r,
+            padding: EdgeInsets.only(top: 15.h, left: 20.w, right: 20.w).r,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Row(
                   children: [
                     customAvatar(
-                      onTap: (){
+                      onTap: () {
                         Navigator.pop(context);
                       },
                       radius: 20.r,
@@ -86,6 +86,49 @@ class TransactionHistory extends StatelessWidget {
                       color: AppColors.darkGrey,
                     ),
                   ],
+                ),
+                verticalSpace(15.h),
+                Expanded(
+                  child: ListView.builder(
+                    physics: const BouncingScrollPhysics(),
+                    itemCount: 10,
+                    itemBuilder: (BuildContext context, int index) {
+                      return Container(
+                        height: 85.h,
+                        // color: Colors.red,
+                        child: Column(
+                          children: [
+                            Divider(
+                              thickness: 1.h,
+                            ),
+                            ListTile(
+                              contentPadding: EdgeInsets.zero,
+                              leading: CircleAvatar(
+                                  radius: 20.sp,
+                                  backgroundColor: AppColors.lightGreen,
+                                  child: const Icon(
+                                    Icons.call_made,
+                                    color: AppColors.greenColor,
+                                  )),
+                              title: semiBoldText(
+                                text: "Access Bank ",
+                                color: AppColors.violet,
+                                fontSize: 14.sp,
+                              ),
+                              subtitle: smallText(
+                                  text: "28, Jan 2020",
+                                  color: AppColors.greyColor,
+                                  fontSize: 10.sp),
+                              trailing: semiBoldText(
+                                  text: "\$2,400",
+                                  color: AppColors.violet,
+                                  fontSize: 14.sp),
+                            ),
+                          ],
+                        ),
+                      );
+                    },
+                  ),
                 ),
               ],
             ),

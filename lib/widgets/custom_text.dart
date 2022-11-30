@@ -14,6 +14,7 @@ Widget smallText({
 }) {
   return Text(
     text,
+    textAlign: TextAlign.center,
    style: TextStyle(
       color: color,
       fontSize: fontSize,

@@ -9,12 +9,15 @@ Widget iconAndTextItem({
   required Icon icon,
   required String text,
   required Function onPress,
+  Color? bgColor= AppColors.darkGreen,
+  Color? textColor= AppColors.whiteColor,
+  
 }) {
   return Column(
     mainAxisAlignment: MainAxisAlignment.center,
     children: [
       customAvatar(
-        backgroundColor: AppColors.darkGreen,
+        backgroundColor: bgColor,
         icon: icon,
         radius: 35.sp,
         onTap: onPress
@@ -23,7 +26,7 @@ Widget iconAndTextItem({
       boldText(
           text: text,
            fontSize: 13.sp,
-            color: AppColors.whiteColor,
+            color: textColor,
             ),
     ],
   );
