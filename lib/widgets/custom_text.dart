@@ -10,11 +10,11 @@ Widget smallText({
   double? fontSize= 14,
   Color? color=  AppColors.blackColor,
    FontWeight? fontWeight= smallFont,
-
+   TextAlign? textAlign= TextAlign.start,
 }) {
   return Text(
     text,
-    textAlign: TextAlign.center,
+    textAlign: textAlign,
    style: TextStyle(
       color: color,
       fontSize: fontSize,

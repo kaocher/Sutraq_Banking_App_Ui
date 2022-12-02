@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:sutraq/bottom_navigation/bottom_nav_controller.dart';
 import 'package:sutraq/ui/views/auth_screen/forgot_password_screen.dart';
 import 'package:sutraq/ui/views/auth_screen/login_screen.dart';
 import 'package:sutraq/ui/views/dashboard_screen/dash_board_screen.dart';

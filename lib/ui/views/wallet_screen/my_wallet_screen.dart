@@ -128,43 +128,7 @@ class MyWalletScreen extends StatelessWidget {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              iconAndTextItem(
-                                  icon: const Icon(
-                                    Icons.wallet,
-                                    color: Colors.white,
-                                  ),
-                                  text: "Fund Wallet",
-                                  textColor: AppColors.blackShade,
-                                  bgColor: AppColors.greenColor,
-                                  onPress: () {
-                                    Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                        builder: (context) =>
-                                            const TransactionHistory(),
-                                      ),
-                                    );
-                                  }),
-                              iconAndTextItem(
-                                  icon: const Icon(
-                                    Icons.trending_up,
-                                    color: Colors.white,
-                                  ),
-                                  text: "Send Money",
-                                  textColor: AppColors.blackShade,
-                                  bgColor: AppColors.greenColor,
-                                  onPress: () {
-                                    print("Tapped");
-                                  }),
-                              iconAndTextItem(
-                                  icon: const Icon(
-                                    Icons.logout_outlined,
-                                    color: Colors.white,
-                                  ),
-                                  text: "Withdraw",
-                                  textColor: AppColors.blackShade,
-                                  bgColor: AppColors.greenColor,
-                                  onPress: () {}),
+                             
                             ],
                           ),
                         ),

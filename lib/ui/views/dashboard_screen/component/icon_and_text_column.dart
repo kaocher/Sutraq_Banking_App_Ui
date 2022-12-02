@@ -6,9 +6,9 @@ import '../../../../widgets/custom_space.dart';
 import '../../../../widgets/custom_text.dart';
 
 Widget iconAndTextItem({
-  required Icon icon,
+  required IconData icon,
   required String text,
-  required Function onPress,
+   VoidCallback? onPress,
   Color? bgColor= AppColors.darkGreen,
   Color? textColor= AppColors.whiteColor,
   
@@ -16,11 +16,13 @@ Widget iconAndTextItem({
   return Column(
     mainAxisAlignment: MainAxisAlignment.center,
     children: [
-      customAvatar(
-        backgroundColor: bgColor,
-        icon: icon,
-        radius: 35.sp,
-        onTap: onPress
+      GestureDetector(
+        onTap: onPress,
+        child: CircleAvatar(
+          backgroundColor: bgColor,
+          radius: 35.sp,
+          child: Icon(icon),
+        ),
       ),
       verticalSpace(10.h),
       boldText(

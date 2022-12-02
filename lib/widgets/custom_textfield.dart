@@ -10,7 +10,10 @@ Widget customTextField({
 }) {
   return TextFormField(
     decoration: InputDecoration(
-      border: OutlineInputBorder(borderSide: BorderSide(color: Colors.grey)),
+      border: OutlineInputBorder(
+        borderSide: BorderSide(color: Colors.grey),
+      ),
+      focusColor: AppColors.greenColor,
       prefixIcon: Icon(
         prefixIcon,
         color: AppColors.greenColor,

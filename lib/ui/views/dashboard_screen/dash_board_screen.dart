@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:sutraq/bottom_navigation/bottom_nav_controller.dart';
 import 'package:sutraq/const/app_colors.dart';
 import 'package:sutraq/const/app_strings.dart';
+import 'package:sutraq/ui/views/dashboard_screen/component/alert_dialogue.dart';
 import 'package:sutraq/ui/views/dashboard_screen/component/icon_and_text_column.dart';
 import 'package:sutraq/ui/views/dashboard_screen/transaction_history_screen.dart';
 import 'package:sutraq/widgets/custom_avatar.dart';
+import 'package:sutraq/widgets/custom_button.dart';
 import 'package:sutraq/widgets/custom_expanded.dart';
 import 'package:sutraq/widgets/custom_image.dart';
 import 'package:sutraq/widgets/custom_space.dart';
@@ -17,12 +20,14 @@ class DashBoardScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.darkGreen,
+      //bottomNavigationBar: BottomNavController(),
       body: SafeArea(
         child: SizedBox(
           height: double.infinity,
           width: double.infinity,
           child: Column(
             children: [
+              //Heading
               Container(
                 padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 20.h),
                 height: 80.h,
@@ -39,9 +44,10 @@ class DashBoardScreen extends StatelessWidget {
                     ),
                   ),
                   title: semiBoldText(
-                      text: "Hello, Precious!",
-                      color: AppColors.whiteColor,
-                      fontSize: 16.sp,),
+                    text: "Hello, Precious!",
+                    color: AppColors.whiteColor,
+                    fontSize: 16.sp,
+                  ),
                   subtitle: boldText(
                       text: "Su/Pre123",
                       color: AppColors.whiteColor.withOpacity(0.5),
@@ -52,6 +58,8 @@ class DashBoardScreen extends StatelessWidget {
                   ),
                 ),
               ),
+
+              //Horizontal Pageview item
               Container(
                 height: 100.h,
                 // color: Colors.yellow,
@@ -120,10 +128,13 @@ class DashBoardScreen extends StatelessWidget {
                   },
                 ),
               ),
+
+              //Dot indicator
               Container(
                 height: 20.h,
-                // color: Colors.blue,
               ),
+
+              //Green Container
               customExpanded(
                 child: Column(
                   children: [
@@ -138,31 +149,37 @@ class DashBoardScreen extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           iconAndTextItem(
-                              icon: const Icon(Icons.wallet),
-                              text: "Fund Wallet",
-                             onPress: ((){
-                               Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) =>
-                                          const TransactionHistory(),
-                                    ),
-                                  );
-                             })
-                             ),
-                          iconAndTextItem(
-                            icon: const Icon(Icons.login_outlined),
-                            text: "Send Money",
-                          onPress: (){
-                            print("Tapped");
-                          }
+                            icon: Icons.wallet,
+                            text: "Fund Wallet",
+                            onPress: (() {
+                              customAlertDialigue(context,
+                                  image: AppStrings.appLogo,
+                                  country: "NGN",
+                                  amount: "N120",
+                                  buttonText: "WITHDRAW FUNDS");
+                            }),
                           ),
                           iconAndTextItem(
-                            icon: const Icon(Icons.logout_outlined),
+                            icon: Icons.login_outlined,
+                            text: "Send Money",
+                            onPress: (() {
+                              customAlertDialigue(context,
+                                  image: AppStrings.appLogo,
+                                  country: "NGN",
+                                  amount: "N120",
+                                  buttonText: "WITHDRAW FUNDS");
+                            }),
+                          ),
+                          iconAndTextItem(
+                            icon: Icons.logout_outlined,
                             text: "Withdraw",
-                            onPress: () {
-                              
-                            }
+                            onPress: (() {
+                              customAlertDialigue(context,
+                                  image: AppStrings.appLogo,
+                                  country: "NGN",
+                                  amount: "N120",
+                                  buttonText: "WITHDRAW FUNDS");
+                            }),
                           ),
                         ],
                       ),
@@ -180,45 +197,42 @@ class DashBoardScreen extends StatelessWidget {
                             semiBoldText(
                                 text: "Recent Transactions", fontSize: 15.sp),
                             verticalSpace(10.h),
+
+                            // Transaction List
                             Expanded(
                               child: ListView.builder(
                                 physics: const BouncingScrollPhysics(),
                                 itemCount: 10,
                                 itemBuilder: (BuildContext context, int index) {
-                                  return Container(
-                                    height: 85.h,
+                                  return SizedBox(
+                                    height: 70.h,
                                     // color: Colors.red,
-                                    child: Column(
-                                      children: [
-                                        Divider(
-                                          thickness: 1.h,
+                                    child: Card(
+                                      elevation: 0.5,
+                                      child: ListTile(
+                                        horizontalTitleGap: 20.w,
+                                        leading: CircleAvatar(
+                                            radius: 20.sp,
+                                            backgroundColor:
+                                                AppColors.lightGreen,
+                                            child: const Icon(
+                                              Icons.call_made,
+                                              color: AppColors.greenColor,
+                                            )),
+                                        title: semiBoldText(
+                                          text: "Access Bank ",
+                                          color: AppColors.violet,
+                                          fontSize: 14.sp,
                                         ),
-                                        ListTile(
-                                          
-                                          contentPadding: EdgeInsets.zero,
-                                          leading: CircleAvatar(
-                                              radius: 20.sp,
-                                              backgroundColor:
-                                                  AppColors.lightGreen,
-                                              child: const Icon(
-                                                Icons.call_made,
-                                                color: AppColors.greenColor,
-                                              )),
-                                          title: semiBoldText(
-                                            text: "Access Bank ",
+                                        subtitle: smallText(
+                                            text: "28, Jan 2020",
+                                            color: AppColors.greyColor,
+                                            fontSize: 10.sp),
+                                        trailing: semiBoldText(
+                                            text: "\$2,400",
                                             color: AppColors.violet,
-                                            fontSize: 14.sp,
-                                          ),
-                                          subtitle: smallText(
-                                              text: "28, Jan 2020",
-                                              color: AppColors.greyColor,
-                                              fontSize: 10.sp),
-                                          trailing: semiBoldText(
-                                              text: "\$2,400",
-                                              color: AppColors.violet,
-                                              fontSize: 14.sp),
-                                        ),
-                                      ],
+                                            fontSize: 14.sp),
+                                      ),
                                     ),
                                   );
                                 },
@@ -227,7 +241,6 @@ class DashBoardScreen extends StatelessWidget {
                             Align(
                               child: GestureDetector(
                                 onTap: (() {
-                                  print("Tapped");
                                   Navigator.push(
                                     context,
                                     MaterialPageRoute(
