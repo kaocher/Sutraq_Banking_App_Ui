@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:sutraq/const/app_colors.dart';
+import 'package:sutraq/ui/styles/app_dimensions.dart';
 import 'package:sutraq/widgets/custom_avatar.dart';
 import 'package:sutraq/widgets/custom_icon.dart';
 import 'package:sutraq/widgets/custom_space.dart';
@@ -21,27 +22,27 @@ class TransactionHistory extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 15.h),
+                padding: AppPadding.symmetricPadding(15, 20),
                 child: Column(
                   children: [
                     Row(
                       children: [
                         customAvatar(
                           onTap: (() => Navigator.pop(context)),
-                          radius: 20.r,
+                          radius: 20,
                           icon: customIcon(
                             icon: Icons.arrow_back,
-                            size: 20.sp,
+                            size: 20,
                           ),
                         ),
-                        horizontalSpace(30.w),
+                        horizontalSpace(30),
                         boldText(
                           text: "Transaction History",
-                          fontSize: 18.sp,
+                          fontSize: 18,
                         ),
                       ],
                     ),
-                    verticalSpace(20.h),
+                    verticalSpace(20),
                     Container(
                       height: 50.h,
                       width: 250.w,
@@ -52,13 +53,14 @@ class TransactionHistory extends StatelessWidget {
                             strokeAlign: StrokeAlign.inside),
                       ),
                       child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 15).w,
+                        padding: AppPadding.hPadding(15),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             smallText(
-                                text: "Naira Account: N190,000",
-                                fontSize: 13.sp),
+                              text: "Naira Account: N190,000",
+                              fontSize: 13,
+                            ),
                             customIcon(
                               icon: Icons.arrow_drop_down_outlined,
                               color: AppColors.greenColor,
@@ -67,23 +69,23 @@ class TransactionHistory extends StatelessWidget {
                         ),
                       ),
                     ),
-                    verticalSpace(35.h),
+                    verticalSpace(35),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         defaultText(
                           text: "All Transactions",
-                          fontSize: 13.sp,
+                          fontSize: 13,
                           color: AppColors.blueColor,
                         ),
                         defaultText(
                           text: "Debits",
-                          fontSize: 12.sp,
+                          fontSize: 12,
                           color: AppColors.darkGrey,
                         ),
                         defaultText(
                           text: "Credits",
-                          fontSize: 12.sp,
+                          fontSize: 12,
                           color: AppColors.darkGrey,
                         ),
                       ],
@@ -94,7 +96,6 @@ class TransactionHistory extends StatelessWidget {
               Expanded(
                 child: ColoredBox(
                   color: AppColors.whiteColor,
-
                   child: ListView.builder(
                     physics: const BouncingScrollPhysics(),
                     itemCount: 10,
@@ -104,7 +105,7 @@ class TransactionHistory extends StatelessWidget {
                         child: ListTile(
                           horizontalTitleGap: 20.w,
                           leading: CircleAvatar(
-                              radius: 20.sp,
+                              radius: 20.r,
                               backgroundColor: AppColors.lightGreen,
                               child: const Icon(
                                 Icons.call_made,
@@ -113,16 +114,18 @@ class TransactionHistory extends StatelessWidget {
                           title: semiBoldText(
                             text: "Access Bank ",
                             color: AppColors.violet,
-                            fontSize: 14.sp,
+                            fontSize: 14,
                           ),
                           subtitle: smallText(
-                              text: "28, Jan 2020",
-                              color: AppColors.greyColor,
-                              fontSize: 10.sp),
+                            text: "28, Jan 2020",
+                            color: AppColors.greyColor,
+                            fontSize: 10,
+                          ),
                           trailing: semiBoldText(
-                              text: "\$2,400",
-                              color: AppColors.violet,
-                              fontSize: 14.sp),
+                            text: "\$2,400",
+                            color: AppColors.violet,
+                            fontSize: 14,
+                          ),
                         ),
                       );
                     },

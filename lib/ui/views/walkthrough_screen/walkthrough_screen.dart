@@ -3,11 +3,13 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:sutraq/const/app_colors.dart';
+import 'package:sutraq/ui/styles/app_dimensions.dart';
 import 'package:sutraq/ui/views/auth_screen/login_screen.dart';
 import 'package:sutraq/ui/views/walkthrough_screen/component/intro_slider.dart';
 import 'package:sutraq/ui/views/walkthrough_screen/component/slider_model.dart';
 import 'package:sutraq/widgets/custom_button.dart';
 import 'package:sutraq/widgets/custom_expanded.dart';
+import 'package:sutraq/widgets/custom_space.dart';
 import 'package:sutraq/widgets/custom_text.dart';
 
 class WalkThroughScreen extends StatefulWidget {
@@ -69,7 +71,7 @@ class _WalkThroughScreenState extends State<WalkThroughScreen> {
                   customExpanded(
                     child: Container(
                       width: 1.sw,
-                      padding: const EdgeInsets.only(bottom: 30).h,
+                      padding: AppPadding.bPadding(30),
                       decoration: const BoxDecoration(
                         color: Colors.green,
                         borderRadius: BorderRadius.only(
@@ -81,21 +83,19 @@ class _WalkThroughScreenState extends State<WalkThroughScreen> {
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
                           Padding(
-                            padding:  EdgeInsets.symmetric(horizontal: 30.w),
+                            padding:  AppPadding.hPadding(30),
                             child: CustomButton(
                               text: "Login",
                               onPress: () {
                                 Navigator.push(context, MaterialPageRoute(builder: (context)=>LoginScreen()));
                               },
-                              bgColor: AppColors.darkGreen,
+                              buttonColor: AppColors.darkGreen,
                             ),
                           ),
-                          const SizedBox(
-                            height: 20,
-                          ),
+                          verticalSpace(20),
                           boldText(
                               text: "Try Sutraq",
-                              fontSize: 16.sp,
+                              fontSize: 16,
                               color: AppColors.whiteColor),
                               
                         ],
@@ -106,7 +106,7 @@ class _WalkThroughScreenState extends State<WalkThroughScreen> {
               ),
               Positioned(
                 // top: 30.h,
-                child: Container(
+                child: SizedBox(
                   height: 640.h,
                   width: 1.sw,
                   // color: Colors.purple,
@@ -126,7 +126,7 @@ class _WalkThroughScreenState extends State<WalkThroughScreen> {
                 left: 0,
                 right: 0,
                 child: Container(
-                  height: 50,
+                  height: 50.h,
                   // color: Colors.amber,
                 ),
               ),

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:sutraq/const/app_colors.dart';
 import 'package:sutraq/const/app_strings.dart';
+import 'package:sutraq/ui/styles/app_dimensions.dart';
 import 'package:sutraq/ui/views/auth_screen/tips_screen.dart';
 import 'package:sutraq/widgets/custom_button.dart';
 import 'package:sutraq/widgets/custom_image.dart';
@@ -18,12 +19,9 @@ class SentEmailScreen extends StatelessWidget {
       body: SafeArea(
         child: Center(
           child: Container(
-            padding: EdgeInsets.symmetric(
-              // vertical: 40.h,
-              horizontal: 20.w,
-            ),
-            height: 1.sh * 0.5,
-            width: 1.sw * 0.8,
+            padding: AppPadding.hPadding(20),
+            height: 0.5.sh,
+            width: 0.8.sw,
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(20.r),
@@ -31,21 +29,22 @@ class SentEmailScreen extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                customImage(image: AppStrings.inbox, height: 80, width: 80),
+                customAssetImage(image: AppStrings.inbox, height: 80, width: 80),
                 verticalSpace(30.h),
                 semiBoldText(
                   text: "Check your Inbox!",
-                  fontSize: 25.sp,
+                  fontSize: 25,
                   color: AppColors.blackShade,
                 ),
-                verticalSpace(10.h),
+                verticalSpace(10),
                 smallText(
                   text:
                       "An email has been sent to you. Click the link to reset your password.",
-                  fontSize: 14.sp,
+                  fontSize: 14,
                   color: AppColors.greyColor,
+                  textAlign: TextAlign.center
                 ),
-                verticalSpace(20.h),
+                verticalSpace(20),
                 CustomButton(
                   text: "CHECK MAIL",
                   onPress: () {

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:sutraq/const/app_strings.dart';
 import 'package:sutraq/ui/views/walkthrough_screen/walkthrough_screen.dart';
+import 'package:sutraq/widgets/custom_image.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -28,14 +29,11 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Container(
-          height: 108.h,
-          width: 112.w,
-          decoration: const BoxDecoration(
-              image: DecorationImage(
-                  image: AssetImage(AppStrings.appLogo), fit: BoxFit.cover)),
-        ),
-      ),
+          child: customAssetImage(
+        image: AppStrings.appLogo,
+        height: 108,
+        width: 112,
+      )),
     );
   }
 }

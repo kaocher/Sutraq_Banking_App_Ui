@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../const/app_colors.dart';
 
@@ -13,7 +14,7 @@ Widget customAvatar ({
   return GestureDetector(
     onTap: onTap,
     child: CircleAvatar(
-          radius: radius,
+          radius: radius!.r,
           backgroundColor: backgroundColor,
           child: isText? text :icon,
         ),

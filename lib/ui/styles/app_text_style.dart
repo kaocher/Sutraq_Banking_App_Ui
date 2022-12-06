@@ -8,7 +8,7 @@ class AppTextStyle {
   //Default Style
   static TextStyle defaultStyle({
     double fontSize = 16,
-    FontWeight fontWeight = defaultFont,
+    FontWeight fontWeight = w500,
     Color color = AppColors.blackColor,
   }) {
     return TextStyle(
@@ -24,7 +24,7 @@ class AppTextStyle {
     Color? color = Colors.black,
   }) {
     return TextStyle(
-      fontWeight: smallFont,
+      fontWeight: w400,
       fontSize: fontSize,
       color: color,
     );
@@ -36,7 +36,7 @@ class AppTextStyle {
     Color? color = Colors.black,
   }) {
     return TextStyle(
-      fontWeight: semiBoldFont,
+      fontWeight: w600,
       fontSize: fontSize,
       color: color,
     );
@@ -48,7 +48,7 @@ class AppTextStyle {
     Color? color=Colors.black,
   }) {
     return TextStyle(
-      fontWeight: boldFont,
+      fontWeight: w700,
       fontSize: fontSize,
       color: color,
     );

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:sutraq/const/app_colors.dart';
 import 'package:sutraq/ui/styles/app_font_weight.dart';
 import 'package:sutraq/ui/styles/app_text_style.dart';
@@ -9,7 +10,7 @@ Widget smallText({
   required String text,
   double? fontSize= 14,
   Color? color=  AppColors.blackColor,
-   FontWeight? fontWeight= smallFont,
+   FontWeight? fontWeight= w400,
    TextAlign? textAlign= TextAlign.start,
 }) {
   return Text(
@@ -17,7 +18,7 @@ Widget smallText({
     textAlign: textAlign,
    style: TextStyle(
       color: color,
-      fontSize: fontSize,
+      fontSize: fontSize!.sp,
        fontWeight: fontWeight,
     ),
   );
@@ -29,14 +30,15 @@ Widget defaultText({
   required String text,
   double? fontSize= 16,
   Color? color=  AppColors.blackColor,
-   FontWeight? fontWeight= defaultFont,
-
+   FontWeight? fontWeight= w500,
+   TextAlign? textAlign= TextAlign.start,
 }) {
   return Text(
     text,
+    textAlign: textAlign,
    style: TextStyle(
       color: color,
-      fontSize: fontSize,
+      fontSize: fontSize!.sp,
        fontWeight: fontWeight,
     ),
   );
@@ -48,14 +50,14 @@ Widget semiBoldText({
   required String text,
   double? fontSize= 18,
   Color? color=  AppColors.blackColor,
-   FontWeight? fontWeight= semiBoldFont,
+   FontWeight? fontWeight= w600,
 
 }) {
   return Text(
     text,
     style: TextStyle(
       color: color,
-      fontSize: fontSize,
+      fontSize: fontSize!.sp,
        fontWeight: fontWeight,
     ),
   );
@@ -67,14 +69,14 @@ Widget boldText({
   required String text,
   double? fontSize= 22,
   Color? color= AppColors.blackColor,
-  FontWeight? fontWeight= boldFont,
+  FontWeight? fontWeight= w700,
 
 }) {
   return Text(
     text,
     style: TextStyle(
       color: color,
-      fontSize: fontSize,
+      fontSize: fontSize!.sp,
       fontWeight: fontWeight,
     ),
   );

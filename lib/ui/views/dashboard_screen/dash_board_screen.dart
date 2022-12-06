@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:sutraq/bottom_navigation/bottom_nav_controller.dart';
 import 'package:sutraq/const/app_colors.dart';
 import 'package:sutraq/const/app_strings.dart';
-import 'package:sutraq/ui/views/dashboard_screen/component/alert_dialogue.dart';
+import 'package:sutraq/ui/styles/app_dimensions.dart';
+import 'package:sutraq/ui/views/dashboard_screen/component/custom_dialogue.dart';
 import 'package:sutraq/ui/views/dashboard_screen/component/icon_and_text_column.dart';
 import 'package:sutraq/ui/views/dashboard_screen/transaction_history_screen.dart';
 import 'package:sutraq/widgets/custom_avatar.dart';
@@ -29,29 +29,30 @@ class DashBoardScreen extends StatelessWidget {
             children: [
               //Heading
               Container(
-                padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 20.h),
-                height: 80.h,
+                padding: AppPadding.symmetricPadding(20, 10),
+                height: 80,
                 // color: Colors.yellow,
                 child: ListTile(
                   leading: customAvatar(
-                    radius: 20.r,
+                    radius: 20,
                     backgroundColor: Colors.purple,
                     isText: true,
                     text: semiBoldText(
                       text: "OP",
-                      fontSize: 10.sp,
+                      fontSize: 10,
                       color: AppColors.whiteColor,
                     ),
                   ),
                   title: semiBoldText(
                     text: "Hello, Precious!",
                     color: AppColors.whiteColor,
-                    fontSize: 16.sp,
+                    fontSize: 16,
                   ),
                   subtitle: boldText(
-                      text: "Su/Pre123",
-                      color: AppColors.whiteColor.withOpacity(0.5),
-                      fontSize: 10.sp),
+                    text: "Su/Pre123",
+                    color: AppColors.whiteColor.withOpacity(0.5),
+                    fontSize: 10,
+                  ),
                   trailing: const Icon(
                     Icons.notifications_active,
                     color: Colors.white,
@@ -59,6 +60,7 @@ class DashBoardScreen extends StatelessWidget {
                 ),
               ),
 
+              verticalSpace(10),
               //Horizontal Pageview item
               Container(
                 height: 100.h,
@@ -66,10 +68,10 @@ class DashBoardScreen extends StatelessWidget {
                 child: ListView.builder(
                   scrollDirection: Axis.horizontal,
                   physics: const BouncingScrollPhysics(),
-                  itemCount: 8,
+                  itemCount: 3,
                   itemBuilder: (BuildContext context, int index) {
                     return Container(
-                      margin: const EdgeInsets.only(left: 15).w,
+                      margin: AppPadding.lPadding(15),
                       height: 100.h,
                       width: 230.w,
                       decoration: BoxDecoration(
@@ -77,33 +79,34 @@ class DashBoardScreen extends StatelessWidget {
                         borderRadius: BorderRadius.circular(10),
                       ),
                       child: Padding(
-                        padding: const EdgeInsets.all(12.0).r,
+                        padding: AppPadding.allPadding(12),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
                             Row(
                               children: [
-                                customImage(
+                                customAssetImage(
                                   image: AppStrings.appLogo,
-                                  height: 12.h,
-                                  width: 14.w,
+                                  height: 12,
+                                  width: 14,
                                 ),
-                                horizontalSpace(5.w),
+                                horizontalSpace(5),
                                 boldText(
-                                    text: "SUTRAQ CURRENCY",
-                                    fontSize: 12.sp,
-                                    color: AppColors.violet),
+                                  text: "SUTRAQ CURRENCY",
+                                  fontSize: 12,
+                                  color: AppColors.violet,
+                                ),
                                 const Spacer(),
                                 Icon(
                                   Icons.visibility,
-                                  size: 15.sp,
+                                  size: 15.r,
                                 ),
                               ],
                             ),
                             boldText(
                               text: "AVAILABLE BALANCE",
-                              fontSize: 8.sp,
+                              fontSize: 8,
                               color: AppColors.greyColor,
                             ),
                             Row(
@@ -111,12 +114,12 @@ class DashBoardScreen extends StatelessWidget {
                               children: [
                                 boldText(
                                   text: "Q190,000",
-                                  fontSize: 20.sp,
+                                  fontSize: 20,
                                   color: AppColors.greenColor,
                                 ),
                                 Icon(
                                   Icons.arrow_forward,
-                                  size: 20.sp,
+                                  size: 20.r,
                                   color: AppColors.greenColor,
                                 ),
                               ],
@@ -140,8 +143,7 @@ class DashBoardScreen extends StatelessWidget {
                   children: [
                     Container(
                       // color: Colors.yellow,
-                      padding: EdgeInsets.symmetric(
-                          horizontal: 20.w, vertical: 10.h),
+                      padding: AppPadding.symmetricPadding(10, 20),
                       height: 125.h,
 
                       //Icon & Text item
@@ -152,33 +154,21 @@ class DashBoardScreen extends StatelessWidget {
                             icon: Icons.wallet,
                             text: "Fund Wallet",
                             onPress: (() {
-                              customAlertDialigue(context,
-                                  image: AppStrings.appLogo,
-                                  country: "NGN",
-                                  amount: "N120",
-                                  buttonText: "WITHDRAW FUNDS");
+                              customDialogue(context);
                             }),
                           ),
                           iconAndTextItem(
                             icon: Icons.login_outlined,
                             text: "Send Money",
                             onPress: (() {
-                              customAlertDialigue(context,
-                                  image: AppStrings.appLogo,
-                                  country: "NGN",
-                                  amount: "N120",
-                                  buttonText: "WITHDRAW FUNDS");
+                             customDialogue(context);
                             }),
                           ),
                           iconAndTextItem(
                             icon: Icons.logout_outlined,
                             text: "Withdraw",
                             onPress: (() {
-                              customAlertDialigue(context,
-                                  image: AppStrings.appLogo,
-                                  country: "NGN",
-                                  amount: "N120",
-                                  buttonText: "WITHDRAW FUNDS");
+                             customDialogue(context);
                             }),
                           ),
                         ],
@@ -189,14 +179,15 @@ class DashBoardScreen extends StatelessWidget {
                     customExpanded(
                       color: AppColors.whiteColor,
                       child: Padding(
-                        padding:
-                            EdgeInsets.only(left: 25.w, right: 25.w, top: 15.h),
+                        padding: AppPadding.tlrbPadding(15, 25, 25, 0),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             semiBoldText(
-                                text: "Recent Transactions", fontSize: 15.sp),
-                            verticalSpace(10.h),
+                              text: "Recent Transactions",
+                              fontSize: 15,
+                            ),
+                            verticalSpace(10),
 
                             // Transaction List
                             Expanded(
@@ -212,7 +203,7 @@ class DashBoardScreen extends StatelessWidget {
                                       child: ListTile(
                                         horizontalTitleGap: 20.w,
                                         leading: CircleAvatar(
-                                            radius: 20.sp,
+                                            radius: 20.r,
                                             backgroundColor:
                                                 AppColors.lightGreen,
                                             child: const Icon(
@@ -222,16 +213,18 @@ class DashBoardScreen extends StatelessWidget {
                                         title: semiBoldText(
                                           text: "Access Bank ",
                                           color: AppColors.violet,
-                                          fontSize: 14.sp,
+                                          fontSize: 14,
                                         ),
                                         subtitle: smallText(
-                                            text: "28, Jan 2020",
-                                            color: AppColors.greyColor,
-                                            fontSize: 10.sp),
+                                          text: "28, Jan 2020",
+                                          color: AppColors.greyColor,
+                                          fontSize: 10,
+                                        ),
                                         trailing: semiBoldText(
-                                            text: "\$2,400",
-                                            color: AppColors.violet,
-                                            fontSize: 14.sp),
+                                          text: "\$2,400",
+                                          color: AppColors.violet,
+                                          fontSize: 14,
+                                        ),
                                       ),
                                     ),
                                   );
@@ -251,7 +244,7 @@ class DashBoardScreen extends StatelessWidget {
                                 }),
                                 child: boldText(
                                   text: "View All",
-                                  fontSize: 14.sp,
+                                  fontSize: 14,
                                   color: AppColors.greenColor,
                                 ),
                               ),

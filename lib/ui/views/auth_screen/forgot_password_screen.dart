@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:sutraq/ui/styles/app_dimensions.dart';
 import 'package:sutraq/ui/views/auth_screen/email_sent_screen.dart';
 
 import '../../../const/app_colors.dart';
@@ -22,39 +23,45 @@ class ForgotPassScreen extends StatelessWidget {
           height: 1.sh,
           width: 1.sw,
           child: Padding(
-            padding: EdgeInsets.symmetric(vertical: 50.h, horizontal: 35.w),
+            padding: AppPadding.symmetricPadding(50, 35),
             child: SingleChildScrollView(
               keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
+              physics: const BouncingScrollPhysics(),
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  verticalSpace(30.h),
-                  customImage(
-                      image: AppStrings.appLogo, height: 86.h, width: 94.w),
-                  verticalSpace(35.h),
+                  verticalSpace(30),
+                  customAssetImage(
+                      image: AppStrings.appLogo, height: 86, width: 94),
+                  verticalSpace(35),
                   semiBoldText(
                     text: "Forgot Password?",
-                    fontSize: 30.sp,
+                    fontSize: 30,
                     color: AppColors.blackShade
                   ),
-                  verticalSpace(6.h),
+                  verticalSpace(6),
                   smallText(
                     text:
                         "Enter the email address associated with your account to recover password.",
                     fontSize: 16,
                     color: AppColors.greyColor,
+                    textAlign: TextAlign.center,
                   ),
-                  verticalSpace(10.h),
-                  defaultText(
-                    text: "Email Address",
-                    fontSize: 14.sp,
-                    color: AppColors.greyColor,
+                  verticalSpace(10),
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: defaultText(
+                      text: "Email Address",
+                      fontSize: 14,
+                      color: AppColors.greyColor,
+                    ),
                   ),
-                  verticalSpace(5.h),
+                  verticalSpace(5),
                   customTextField(
                     prefixIcon: Icons.email_outlined,
                   ),
-                  verticalSpace(10.h),
+                  verticalSpace(10),
                   CustomButton(
                     text: "RECOVER PASSWORD",
                     onPress: (() {

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:sutraq/ui/styles/app_dimensions.dart';
 import 'package:sutraq/ui/views/dashboard_screen/transaction_history_screen.dart';
 import 'package:sutraq/widgets/custom_text.dart';
 
@@ -23,13 +24,13 @@ class MyWalletScreen extends StatelessWidget {
           child: Column(
             children: [
               Container(
-                padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 20.h),
+                padding: AppPadding.symmetricPadding(20, 10),
                 height: 80.h,
                 // color: Colors.yellow,
                 child: Center(
                   child: boldText(
                     text: "My Wallets",
-                    fontSize: 20.sp,
+                    fontSize: 20,
                   ),
                 ),
               ),
@@ -50,34 +51,34 @@ class MyWalletScreen extends StatelessWidget {
                         borderRadius: BorderRadius.circular(10),
                       ),
                       child: Padding(
-                        padding: const EdgeInsets.all(12.0).r,
+                        padding: AppPadding.allPadding(12),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
                             Row(
                               children: [
-                                customImage(
+                                customAssetImage(
                                   image: AppStrings.appLogo,
-                                  height: 12.h,
-                                  width: 14.w,
+                                  height: 12,
+                                  width: 14,
                                 ),
-                                horizontalSpace(5.w),
+                                horizontalSpace(5),
                                 boldText(
                                     text: "SUTRAQ CURRENCY",
-                                    fontSize: 12.sp,
+                                    fontSize: 12,
                                     color: AppColors.whiteColor),
                                 const Spacer(),
                                 Icon(
                                   Icons.visibility,
-                                  size: 15.sp,
+                                  size: 15.r,
                                   color: AppColors.whiteColor,
                                 ),
                               ],
                             ),
                             boldText(
                               text: "AVAILABLE BALANCE",
-                              fontSize: 8.sp,
+                              fontSize: 8,
                               color: AppColors.greyColor,
                             ),
                             Row(
@@ -85,12 +86,12 @@ class MyWalletScreen extends StatelessWidget {
                               children: [
                                 boldText(
                                   text: "Q190,000",
-                                  fontSize: 20.sp,
+                                  fontSize: 20,
                                   color: AppColors.whiteColor,
                                 ),
                                 Icon(
                                   Icons.arrow_forward,
-                                  size: 20.sp,
+                                  size: 20.r,
                                   color: AppColors.greenColor,
                                 ),
                               ],
@@ -107,11 +108,10 @@ class MyWalletScreen extends StatelessWidget {
                 // color: Colors.blue,
               ),
               Padding(
-                padding: const EdgeInsets.all(20.0),
+                padding: AppPadding.allPadding(20),
                 child: Flexible(
                   child: Container(
-                    height: 550,
-                    
+                    height: 550.h,
                     decoration: BoxDecoration(
                       color: AppColors.whiteColor,
                       borderRadius: BorderRadius.circular(20.r),
@@ -120,16 +120,13 @@ class MyWalletScreen extends StatelessWidget {
                       children: [
                         Container(
                           // color: Colors.yellow,
-                          padding: EdgeInsets.symmetric(
-                              horizontal: 20.w, vertical: 10.h),
+                          padding: AppPadding.symmetricPadding(10, 20),
                           height: 125.h,
 
                           //Icon & Text item
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                             
-                            ],
+                            children: [],
                           ),
                         ),
 
@@ -137,62 +134,65 @@ class MyWalletScreen extends StatelessWidget {
                         Container(
                           color: AppColors.whiteColor,
                           child: Padding(
-                            padding: EdgeInsets.only(
-                                left: 25.w, right: 25.w, top: 15.h),
+                            padding: AppPadding.tlrbPadding(15, 25, 25, 0),
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 semiBoldText(
-                                    text: "Recent Transactions",
-                                    fontSize: 15.sp),
-                                verticalSpace(10.h),
-
-                                 Container(
+                                  text: "Recent Transactions",
+                                  fontSize: 15,
+                                ),
+                                verticalSpace(10),
+                                Container(
                                   height: 310.h,
-                                   child: Expanded(
-                              child: ListView.builder(
-                                physics: const BouncingScrollPhysics(),
-                                itemCount: 10,
-                                itemBuilder: (BuildContext context, int index) {
-                                    return Container(
-                                      height: 85.h,
-                                      // color: Colors.red,
-                                      child: Column(
-                                        children: [
-                                          Divider(
-                                            thickness: 1.h,
+                                  child: Expanded(
+                                    child: ListView.builder(
+                                      physics: const BouncingScrollPhysics(),
+                                      itemCount: 10,
+                                      itemBuilder:
+                                          (BuildContext context, int index) {
+                                        return Container(
+                                          height: 85.h,
+                                          // color: Colors.red,
+                                          child: Column(
+                                            children: [
+                                              Divider(
+                                                thickness: 1.h,
+                                              ),
+                                              ListTile(
+                                                contentPadding: EdgeInsets.zero,
+                                                leading: CircleAvatar(
+                                                    radius: 20.r,
+                                                    backgroundColor:
+                                                        AppColors.lightGreen,
+                                                    child: const Icon(
+                                                      Icons.call_made,
+                                                      color:
+                                                          AppColors.greenColor,
+                                                    )),
+                                                title: semiBoldText(
+                                                  text: "Access Bank ",
+                                                  color: AppColors.violet,
+                                                  fontSize: 14,
+                                                ),
+                                                subtitle: smallText(
+                                                  text: "28, Jan 2020",
+                                                  color: AppColors.greyColor,
+                                                  fontSize: 10,
+                                                ),
+                                                trailing: semiBoldText(
+                                                  text: "\$2,400",
+                                                  color: AppColors.violet,
+                                                  fontSize: 14,
+                                                ),
+                                              ),
+                                            ],
                                           ),
-                                          ListTile(
-                                            contentPadding: EdgeInsets.zero,
-                                            leading: CircleAvatar(
-                                                radius: 20.sp,
-                                                backgroundColor:
-                                                    AppColors.lightGreen,
-                                                child: const Icon(
-                                                  Icons.call_made,
-                                                  color: AppColors.greenColor,
-                                                )),
-                                            title: semiBoldText(
-                                              text: "Access Bank ",
-                                              color: AppColors.violet,
-                                              fontSize: 14.sp,
-                                            ),
-                                            subtitle: smallText(
-                                                text: "28, Jan 2020",
-                                                color: AppColors.greyColor,
-                                                fontSize: 10.sp),
-                                            trailing: semiBoldText(
-                                                text: "\$2,400",
-                                                color: AppColors.violet,
-                                                fontSize: 14.sp),
-                                          ),
-                                        ],
-                                      ),
-                                    );
-                                },
-                              ),
-                            ),
-                                 ),
+                                        );
+                                      },
+                                    ),
+                                  ),
+                                ),
                                 Container(
                                   color: Colors.transparent,
                                   alignment: Alignment.center,
@@ -209,7 +209,7 @@ class MyWalletScreen extends StatelessWidget {
                                     }),
                                     child: boldText(
                                       text: "View All",
-                                      fontSize: 14.sp,
+                                      fontSize: 14,
                                       color: AppColors.greenColor,
                                     ),
                                   ),

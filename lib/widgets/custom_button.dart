@@ -1,20 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:sutraq/const/app_colors.dart';
+import 'package:sutraq/ui/styles/app_dimensions.dart';
 import 'package:sutraq/ui/styles/app_font_weight.dart';
 import 'package:sutraq/widgets/custom_text.dart';
 
 class CustomButton extends StatelessWidget {
   final String text;
   final VoidCallback onPress;
-   Color? bgColor;
+   Color? buttonColor;
    double? height;
    double? width;
 
    CustomButton({
     required this.text,
     required this.onPress,
-    this.bgColor= AppColors.greenColor,
+    this.buttonColor= AppColors.greenColor,
     this.height,
     this.width,
   });
@@ -24,9 +25,9 @@ class CustomButton extends StatelessWidget {
     return GestureDetector(
       onTap: onPress,
       child: Container(
-        padding: EdgeInsets.symmetric(vertical: 20.h),
+        padding: AppPadding.vPadding(20),
         decoration: BoxDecoration(
-          color: bgColor,
+          color: buttonColor,
           borderRadius: BorderRadius.circular(7).r,
         ),
         width: width,

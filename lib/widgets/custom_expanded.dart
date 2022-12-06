@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:sutraq/const/app_colors.dart';
 
 Widget customExpanded(
   {
     Color? color= AppColors.greenColor,
-    double borderRadius= 25,
+    double borderRadius= 20,
     Widget? child,
   }
 ) {
@@ -14,8 +15,8 @@ Widget customExpanded(
       decoration:  BoxDecoration(
         color: color,
         borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(borderRadius),
-          topRight: Radius.circular(borderRadius),
+          topLeft: Radius.circular(borderRadius.r),
+          topRight: Radius.circular(borderRadius.r),
         ),
       ),
       child: child,
