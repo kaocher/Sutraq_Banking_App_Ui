@@ -1,4 +1,4 @@
-# sutraq
+# sutraq_ui(Banking App)
 
 A new Flutter project.
 
